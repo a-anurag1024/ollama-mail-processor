@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:8.3.0
+    command: --default-authentication-plugin=caching_sha2_password
+    restart: always
+    env_file:
+      - ./secrets/db_root.env
+    ports:
+      - 3306:3306
+    expose:
+      - "3306"
+    volumes:
+      - ./mount/mysql_data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

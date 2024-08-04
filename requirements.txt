@@ -1,1 +1,3 @@
 langchain
+mysql-connector-python
+tqdm
